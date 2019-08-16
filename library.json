@@ -1,0 +1,19 @@
+{
+    "name": "LedStrip",
+    "keywords": "led, leds, strip, addressable, neopixel",
+    "description": "Arduino library to control a simple individually addressable LED strip",
+    "authors": [ 
+        {
+            "name": "Ben Baron",
+            "email": "ben@einsteinx2.com",
+            "url": "https://github.com/einsteinx2",
+            "maintainer": true
+        }
+    ],
+    "dependencies": {
+      "FastLED": "^3.3.0"
+    },
+    "version": "0.1.0",
+    "frameworks": "arduino",
+    "platforms": "*"
+  }

@@ -1,0 +1,25 @@
+{
+    "configurations": [
+        {
+            "name": "Mac",
+            "macFrameworkPath": [],
+            "includePath": [
+                "${workspaceFolder}/",
+                "${HOME}/.platformio/lib/**",
+                "${HOME}/.platformio/packages/framework-arduinoavr/**",
+                "${HOME}/.platformio/packages/toolchain-atmelavr/avr/include/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "${workspaceRoot}/.vscode/.browse.c_cpp.db",
+                "path": [
+                    "${workspaceFolder}/",
+                    "${HOME}/.platformio/lib/**",
+                    "${HOME}/.platformio/packages/framework-arduinoavr/**",
+                    "${HOME}/.platformio/packages/toolchain-atmelavr/avr/include/**"
+                ]
+            }
+        }
+    ],
+    "version": 4
+}
