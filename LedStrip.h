@@ -10,7 +10,7 @@ class LedStrip {
         void turnOff();
         void colorAllLeds(CRGB color);
         void flashAllLeds(CRGB color, int delay);
-        void rainbowEffect();
+        CRGB rainbowEffect();
     private:
         CRGB *leds;
         int _numLeds;
