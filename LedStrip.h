@@ -3,19 +3,22 @@
 #define FASTLED_INTERNAL // Disable FastLED messages
 #include <FastLED.h>
 
+/*
+ * Represents a strip of individually addressible RGB LEDs (currently only NEOPIXELs)
+ */
 class LedStrip {
     public:
-        LedStrip(int numLeds, int dataPin, int defaultBrightness, uint8_t startHue);
+        LedStrip(uint16_t numLeds, uint8_t dataPin, uint8_t defaultBrightness, uint8_t startHue);
         ~LedStrip();
         void turnOff();
         void colorAllLeds(CRGB color);
-        void flashAllLeds(CRGB color, int delay);
+        void flashAllLeds(CRGB color, uint16_t delay);
         CRGB rainbowEffect();
     private:
         CRGB *leds;
-        int _numLeds;
-        int _dataPin;
-        int _defaultBrightness;
+        uint16_t _numLeds;
+        uint8_t _dataPin;
+        uint8_t _defaultBrightness;
         uint8_t _startHue;
 
 };

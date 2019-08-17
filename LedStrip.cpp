@@ -1,6 +1,6 @@
 #include "LedStrip.h"
 
-LedStrip::LedStrip(int numLeds, int dataPin, int defaultBrightness, uint8_t startHue) {
+LedStrip::LedStrip(uint16_t numLeds, uint8_t dataPin, uint8_t defaultBrightness, uint8_t startHue) {
     _numLeds = numLeds;
     _dataPin = dataPin;
     _defaultBrightness = defaultBrightness;
@@ -86,7 +86,7 @@ void LedStrip::colorAllLeds(CRGB color) {
     fill_solid(leds, _numLeds, color);
 }
 
-void LedStrip::flashAllLeds(CRGB color, int delayMillis) {
+void LedStrip::flashAllLeds(CRGB color, uint16_t delayMillis) {
     colorAllLeds(color);
     FastLED.delay(delayMillis);
     colorAllLeds(CRGB::Black);
