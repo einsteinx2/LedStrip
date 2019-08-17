@@ -82,14 +82,20 @@ LedStrip::~LedStrip() {
     delete leds;
 }
 
-void LedStrip::colorAllLeds(CRGB color) {
+void LedStrip::setColorAll(CRGB color) {
     fill_solid(leds, _numLeds, color);
 }
 
+void LedStrip::setColors(CRGB *colors, uint8_t length) {
+    for (int i = 0; i < length; i++) {
+        leds[i] = colors[i];
+    }
+}
+
 void LedStrip::flashAllLeds(CRGB color, uint16_t delayMillis) {
-    colorAllLeds(color);
+    setColorAll(color);
     FastLED.delay(delayMillis);
-    colorAllLeds(CRGB::Black);
+    setColorAll(CRGB::Black);
     FastLED.delay(delayMillis);
 }
 
@@ -107,7 +113,7 @@ CRGB LedStrip::rainbowEffect() {
         lastColor = targetColor;
         hsv2rgb_rainbow(CHSV(hue++, 255, 255), targetColor);
     }
-    colorAllLeds(currentColor);
+    setColorAll(currentColor);
 
     return currentColor;
 }

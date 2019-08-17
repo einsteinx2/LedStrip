@@ -11,7 +11,8 @@ class LedStrip {
         LedStrip(uint16_t numLeds, uint8_t dataPin, uint8_t defaultBrightness, uint8_t startHue);
         ~LedStrip();
         void turnOff();
-        void colorAllLeds(CRGB color);
+        void setColorAll(CRGB color);
+        void setColors(CRGB *colors, uint8_t length);
         void flashAllLeds(CRGB color, uint16_t delay);
         CRGB rainbowEffect();
     private:
