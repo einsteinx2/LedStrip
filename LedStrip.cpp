@@ -99,13 +99,24 @@ void LedStrip::flashAllLeds(CRGB color, uint16_t delayMillis) {
     FastLED.delay(delayMillis);
 }
 
-CRGB LedStrip::rainbowEffect() {
+CRGB LedStrip::rainbowEffect(bool reset) {
     // Better color smoothing code from https://www.reddit.com/r/arduino/comments/5o552l/fastled_how_can_i_create_a_smoothnonchoppy_color/dcgnuje/
-    static CRGB currentColor = CRGB(CHSV(_startHue, 255, 255));
-    static CRGB lastColor = currentColor;
-    static CRGB targetColor = currentColor;
-    static uint8_t hue = _startHue;
-    static uint8_t step = 0;
+    static bool firstRun = true;
+    static CRGB currentColor;
+    static CRGB lastColor;
+    static CRGB targetColor;
+    static uint8_t hue;
+    static uint8_t step;
+
+    // Setup the default color
+    if (firstRun || reset) {
+        firstRun = false;
+        currentColor = CRGB(CHSV(_startHue, 255, 255));
+        lastColor = currentColor;
+        targetColor = currentColor;
+        hue = _startHue;
+        step = 0;
+    }
 
     currentColor = blend(lastColor, targetColor, 255 / 8 * step++);
     if(step > 8) {

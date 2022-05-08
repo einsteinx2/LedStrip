@@ -14,7 +14,7 @@ class LedStrip {
         void setColorAll(CRGB color);
         void setColors(CRGB *colors, uint8_t length);
         void flashAllLeds(CRGB color, uint16_t delay);
-        CRGB rainbowEffect();
+        CRGB rainbowEffect(bool reset);
     private:
         CRGB *leds;
         uint16_t _numLeds;
